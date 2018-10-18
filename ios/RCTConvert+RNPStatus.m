@@ -14,10 +14,7 @@ RCT_ENUM_CONVERTER(RNPType, (@{ @"location" : @(RNPTypeLocation),
                                 @"camera" : @(RNPTypeCamera),
                                 @"microphone" : @(RNPTypeMicrophone),
                                 @"photo" : @(RNPTypePhoto),
-                                @"contacts" : @(RNPTypeContacts),
                                 @"notification" : @(RNPTypeNotification),
-                                @"backgroundRefresh": @(RNPTypeBackgroundRefresh),
-                                @"motion": @(RNPTypeMotion)
                                 }),
                                 RNPTypeUnknown, integerValue)
 

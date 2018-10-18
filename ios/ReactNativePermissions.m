@@ -6,8 +6,6 @@
 //  Copyright © 2016 Yonah Forst. All rights reserved.
 //
 
-@import Contacts;
-
 #import "ReactNativePermissions.h"
 
 #if __has_include(<React/RCTBridge.h>)
@@ -38,10 +36,6 @@
 #import "RNPNotification.h"
 #import "RNPAudioVideo.h"
 #import "RNPPhoto.h"
-#import "RNPContacts.h"
-#import "RNPBackgroundRefresh.h"
-#import "RNPMotion.h"
-
 
 @interface ReactNativePermissions()
 @property (strong, nonatomic) RNPLocation *locationMgr;
@@ -122,17 +116,8 @@ RCT_REMAP_METHOD(getPermissionStatus, getPermissionStatus:(RNPType)type json:(id
         case RNPTypePhoto:
             status = [RNPPhoto getStatus];
             break;
-        case RNPTypeContacts:
-            status = [RNPContacts getStatus];
-            break;
         case RNPTypeNotification:
             status = [RNPNotification getStatus];
-            break;
-        case RNPTypeBackgroundRefresh:
-            status = [RNPBackgroundRefresh getStatus];
-            break;
-        case RNPTypeMotion:
-            status = [RNPMotion getStatus];
             break;
         default:
             break;
@@ -154,12 +139,8 @@ RCT_REMAP_METHOD(requestPermission, permissionType:(RNPType)type json:(id)json r
             return [RNPAudioVideo request:@"audio" completionHandler:resolve];
         case RNPTypePhoto:
             return [RNPPhoto request:resolve];
-        case RNPTypeContacts:
-            return [RNPContacts request:resolve];
         case RNPTypeNotification:
-            return [self requestNotification:json resolve:resolve];\
-        case RNPTypeMotion:
-            return [RNPMotion request:resolve];
+            return [self requestNotification:json resolve:resolve];
         default:
             break;
     }
@@ -200,9 +181,6 @@ RCT_REMAP_METHOD(requestPermission, permissionType:(RNPType)type json:(id)json r
     [self.notificationMgr request:types completionHandler:resolve];
 
 }
-
-
-
 
 
 @end
